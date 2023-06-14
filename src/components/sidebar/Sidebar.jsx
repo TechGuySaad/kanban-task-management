@@ -1,6 +1,10 @@
 import Logo from "../../assets/logo-dark.svg";
 import BoardIcon from '../../assets/icon-board.svg'
 
+import LightIcon from '../../assets/icon-light-theme.svg'
+import DarkIcon from '../../assets/icon-dark-theme.svg'
+import HideIcon from '../../assets/icon-hide-sidebar.svg'
+
 export default function Sidebar() {
   return (
     <div className="sidebar h-full w-64 bg-white flex flex-col py-8 pr-6 justify-between ">
@@ -38,9 +42,28 @@ export default function Sidebar() {
 
         </div>
 
-        <div className="lower-sidebar">
+        <div className="lower-sidebar w-full pl-9 ">
 
-          <h1>Lower sidebar</h1>
+          <div className="switch w-full h-12 bg-indigo-50 rounded-lg flex items-center justify-center gap-x-5">
+            <img src={LightIcon} alt="Icon light theme" />
+            <div className="scroll bg-indigo-700 opacity-75 w-11 h-6 rounded-2xl flex p-1 justify-start hover:justify-end cursor-pointer ">
+                <div className="circle bg-white w-4 h-full rounded-full">
+
+                </div>
+
+            </div>
+            <img src={DarkIcon} alt="Icon dark theme" />
+
+            
+
+          </div>
+
+          <div className="hide-sidebar flex items-center gap-x-4 mt-5 justify-center cursor-pointer">
+
+            <img src={HideIcon} alt="hide icon" />
+
+            <h3 className="text-gray-400 font-bold text-sm">Hide Sidebar</h3>
+          </div>
 
         </div>
       </div>
