@@ -16,7 +16,7 @@ export default function Sidebar() {
             <h3 className="w-full flex justify-start items-center pl-9 text-gray-500 text-sm font-semibold opacity-80 mb-3">ALL BOARDS(3)</h3>
 
             
-            <div className="board w-full h-12 bg-indigo-700 opacity-75 text-white flex pl-9 items-center rounded-r-3xl gap-x-4 cursor-pointer">
+            <div className="board w-full h-12  opacity-75 text-gray-500 flex pl-9 items-center rounded-r-3xl gap-x-4 cursor-pointer hover:bg-indigo-700 hover:text-white hover:rounded-r-3xl">
               <img src={BoardIcon} alt="board icon" />
               <h2 className="font-bold text-sm">Platform Launch</h2>
             </div>
