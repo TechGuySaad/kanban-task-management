@@ -58,7 +58,7 @@ export default function Sidebar() {
 
           </div>
 
-          <div className="hide-sidebar flex items-center gap-x-4 mt-5 justify-center cursor-pointer">
+          <div className="hide-sidebar flex items-center gap-x-4 mt-5 justify-center cursor-pointer hover:bg-gray-100 hover:rounded-md hover:text-black">
 
             <img src={HideIcon} alt="hide icon" />
 
