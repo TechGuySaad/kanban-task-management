@@ -4,7 +4,7 @@ import BoardIcon from '../../assets/icon-board.svg'
 import LightIcon from '../../assets/icon-light-theme.svg'
 import DarkIcon from '../../assets/icon-dark-theme.svg'
 import HideIcon from '../../assets/icon-hide-sidebar.svg'
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
 
 export default function Sidebar({boards}) {
   
