@@ -7,7 +7,7 @@ import HideIcon from '../../assets/icon-hide-sidebar.svg'
 
 export default function Sidebar() {
   return (
-    <div className="sidebar h-full w-64 bg-white flex flex-col py-8 pr-6 justify-between ">
+    <div className="sidebar h-full w-64 bg-white flex flex-col py-8 pr-6 justify-between border-r-indigo-100 border-r-2">
         <div className="upper-sidebar flex flex-col w-full h-2/3  gap-y-16">
           <div className="logo w-full flex  items-center justify-center">
             <img src={Logo} alt="logo" />
@@ -33,7 +33,7 @@ export default function Sidebar() {
             
             <div className="create-new-board w-full h-12  opacity-75  flex pl-9 items-center  gap-x-4 text-indigo-700 cursor-pointer hover:bg-indigo-700 hover:text-white hover:rounded-r-3xl  ">
             <img src={BoardIcon} alt="board icon" />
-              <h2 className="font-bold text-sm ">+ Create New Board</h2>
+              <h2 className="font-bold text-sm ">+ New Board</h2>
 
             </div>
 
