@@ -6,7 +6,18 @@ import DarkIcon from '../../assets/icon-dark-theme.svg'
 import HideIcon from '../../assets/icon-hide-sidebar.svg'
 import { useEffect } from "react";
 
-export default function Sidebar({boards}) {
+export default function Sidebar({boards,setSelectedBoard}) {
+
+  function boardNameCatch(event) {
+    const name = event.target.getAttribute('name');
+    setSelectedBoard(name)
+    console.log('Board name:', name);
+  }
+
+  
+
+ 
+
   
 
   console.log('boards in sidebar:',boards)
@@ -16,7 +27,7 @@ export default function Sidebar({boards}) {
 
   },[boards])
   return (
-    <div className="sidebar h-full w-64 bg-white flex flex-col py-8 pr-6 justify-between border-r-indigo-100 border-r-2">
+    <div className="sidebar h-full w-64 bg-white flex flex-col py-8 pr-6 justify-between border-r-indigo-100 border-r-2 ">
         <div className="upper-sidebar flex flex-col w-full h-2/3  gap-y-16">
           <div className="logo w-full flex  items-center justify-center">
             <img src={Logo} alt="logo" />
@@ -26,10 +37,11 @@ export default function Sidebar({boards}) {
 
             {boards && boards.map((boardName,index) => {
              
+             
               return(
-                <div key={index} className="board w-full h-12  opacity-75 text-gray-500 flex pl-9 items-center rounded-r-3xl gap-x-4 cursor-pointer hover:bg-indigo-700 hover:text-white hover:rounded-r-3xl">
+                <div key={index} className="board w-full h-12  opacity-75 text-gray-500 flex pl-9 items-center rounded-r-3xl gap-x-4 cursor-pointer hover:bg-indigo-700 hover:text-white hover:rounded-r-3xl transition-colors ease-in-out ">
                <img src={BoardIcon} alt="board icon" />
-               <h2 className="font-bold text-sm">{boardName.name}</h2>
+               <h2 className="font-bold text-sm rounded-r-3xl h-full flex items-center" name={boardName.name}  onClick={boardNameCatch}>{boardName.name}</h2>
              </div>
               )
                
