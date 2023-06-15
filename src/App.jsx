@@ -15,7 +15,7 @@ function App() {
 
       if (documents.length > 0) {
         const firstDocument = documents[0];
-        setBoards(firstDocument.data())
+        setBoards(firstDocument.data().boards)
        
       } else {
         console.log("No documents found in the 'boards' collection.");
@@ -24,11 +24,12 @@ function App() {
 
     getBoards();
   }, []);
+
   console.log('boards:',boards);
 
   return (
     <div className="app-container bg-indigo-50 w-full h-screen flex">
-      <Sidebar />
+      <Sidebar boards={boards} />
 
       <div className="body flex flex-col w-full h-screen">
         <Body />
