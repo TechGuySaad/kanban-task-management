@@ -51,7 +51,7 @@ function App() {
                     return (
                       <div
                         key={index}
-                        className="card bg-white w-full h-fit px-3 py-5 rounded-lg shadow-md shadow-gray-200 flex flex-col gap-y-2"
+                        className="card bg-white w-full h-fit px-3 py-5 rounded-lg shadow-md shadow-gray-200 flex flex-col gap-y-2 cursor-pointer "
                       >
                         <h2 className="font-bold text-lg">{task.title}</h2>
                         <p className="text-sm text-gray-400 font-semibold">0 of {task.subtasks.length} subtasks</p>
