@@ -46,7 +46,7 @@ function App() {
             viewBoard.columns.map((column, index) => {
               return (
                 <div key={index} className="column w-72 h-full flex flex-col gap-y-5">
-                  <h1 className="text-lg  text-gray-500">{column.name}</h1>
+                  <h1 className="text-lg  text-gray-500 font-medium">{column.name + `(${column.tasks.length})`}</h1>
                   {column.tasks.map((task, index) => {
                     return (
                       <div
