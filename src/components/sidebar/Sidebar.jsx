@@ -27,7 +27,7 @@ export default function Sidebar({boards,setSelectedBoard}) {
 
   },[boards])
   return (
-    <div className="sidebar h-full w-64 bg-white flex flex-col py-8 pr-6 justify-between border-r-indigo-100 border-r-2 ">
+    <div className="sidebar h-full w-64 bg-white flex flex-col py-8 pr-6 justify-between border-r-indigo-100 border-r-2 z-10 fixed ">
         <div className="upper-sidebar flex flex-col w-full h-2/3  gap-y-16">
           <div className="logo w-full flex  items-center justify-center">
             <img src={Logo} alt="logo" />

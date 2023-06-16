@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import Body from "./components/body/Body";
 import Sidebar from "./components/sidebar/Sidebar";
 import { db } from "./firebase-config";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
+import Columns from "./components/Columns/Columns";
 
 function App() {
   const [boards, setBoards] = useState(null);
@@ -10,6 +11,11 @@ function App() {
 
   const [selectedBoard, setSelectedBoard] = useState("");
   const [viewBoard, setView] = useState(null);
+
+  async function createTask(){
+    await addDoc(boardsCollection,{})
+    
+  }
 
   useEffect(() => {
     async function getBoards() {
@@ -41,27 +47,9 @@ function App() {
           viewBoard={viewBoard}
         />
 
-        <div className="columns w-full   h-full flex gap-x-8 pl-5 pt-5 overflow-y-scroll mb-3 " >
-          {viewBoard &&
-            viewBoard.columns.map((column, index) => {
-              return (
-                <div key={index} className="column w-72 h-full flex flex-col gap-y-5">
-                  <h1 className="text-lg  text-gray-500 font-medium">{column.name + `(${column.tasks.length})`}</h1>
-                  {column.tasks.map((task, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="card bg-white w-full h-fit px-3 py-5 rounded-lg shadow-md shadow-gray-200 flex flex-col gap-y-2 cursor-pointer "
-                      >
-                        <h2 className="font-bold text-lg">{task.title}</h2>
-                        <p className="text-sm text-gray-400 font-semibold">0 of {task.subtasks.length} subtasks</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              );
-            })}
-        </div>
+        <Columns viewBoard={viewBoard}/>
+
+        
       </div>
     </div>
   );
