@@ -1,9 +1,12 @@
 import { useState } from "react";
+import ViewTask from "./ViewTask";
+import AddTask from "./AddTask";
 
 
-export default function Columns({viewBoard}) {
+export default function Columns({viewBoard,addTask,setAddTask}) {
 
     const [viewCard,setViewCard] = useState(null)
+   
 
 
     function handleClickOutsideViewTask(){
@@ -31,41 +34,13 @@ export default function Columns({viewBoard}) {
 
   return (
     <>
-    {viewCard && (
-         <div className="view-task-container absolute w-full h-screen bg-black/70  z-50 flex justify-center items-center " onClick={handleClickOutsideViewTask}>
+    <ViewTask handleClickOutsideViewTask={handleClickOutsideViewTask} cardNameCatch={cardNameCatch} viewCard={viewCard}/>
 
-         <div className="view-task w-96 h-96 bg-white rounded-md">
-
-                <h1>{viewCard.title}</h1>
-                <p>{viewCard.description}</p>
-                <p>Subtasks(0 out of {viewCard.subtasks.length})</p>
-                {viewCard.subtasks.map((subtask,index)=>{
-                    return(
-
-                        <p key={index}>{subtask.title}</p>
-                    )
-
-
-                })}
-
-                <p>{viewCard.status}</p>
-
-
-         
-             
-         
-         </div>
-         
-         
-         </div>
-
-    )
-        
-
-    }
+    {addTask && <AddTask addTask={addTask} setAddTask={setAddTask}/>}
+    
     
    
-    <div className="columns w-full   h-full flex gap-x-8 pl-5 pt-5 overflow-y-scroll mb-3 " >
+    <div className="columns w-6/7 ml-64   h-full flex gap-x-8 pl-5 pt-5 overflow-y-scroll mb-3 overflow-x-scroll" >
     {viewBoard &&
       viewBoard.columns.map((column, index) => {
         return (
@@ -87,6 +62,8 @@ export default function Columns({viewBoard}) {
           </div>
         );
       })}
+
+      
   </div>
   </>
   )

@@ -11,6 +11,7 @@ function App() {
 
   const [selectedBoard, setSelectedBoard] = useState("");
   const [viewBoard, setView] = useState(null);
+  const [addTask,setAddTask] = useState(false)
 
   async function createTask(){
     await addDoc(boardsCollection,{})
@@ -45,9 +46,11 @@ function App() {
           boards={boards}
           setView={setView}
           viewBoard={viewBoard}
+          setAddTask={setAddTask}
+          addTask={addTask}
         />
 
-        <Columns viewBoard={viewBoard}/>
+        <Columns viewBoard={viewBoard} addTask={addTask} setAddTask={setAddTask}/>
 
         
       </div>
